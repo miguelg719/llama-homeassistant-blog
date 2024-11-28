@@ -1,0 +1,22 @@
+.switch {
+  all: unset;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+}
+
+.switch:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-mode="dark"] .switch:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
