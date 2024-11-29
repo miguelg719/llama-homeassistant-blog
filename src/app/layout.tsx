@@ -3,14 +3,12 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import cn from "classnames";
 import { ThemeSwitcher } from "./_components/theme-switcher";
-
+import { BASE_URL } from "@/lib/constants";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const baseUrl = process.env.NODE_ENV === 'production'
-  ? 'https://miguel719.github.io/llama-homeassistant-blog'
-  : '';
+const baseUrl = BASE_URL;
 
 export const metadata: Metadata = {
   title: `Llama + Home Assistant Blog`,
@@ -39,6 +37,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link 
+          rel="icon" 
+          type="image/png" 
+          href={`${baseUrl}/favicon/github_logo.png`}
+        />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta
           name="msapplication-config"
