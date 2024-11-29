@@ -16,6 +16,9 @@ type Props = {
 };
 
 export function PostHeader({ title, coverImage, date, author }: Props) {
+  const basePath = process.env.NODE_ENV === 'production' ? '/llama-homeassistant-blog' : '';
+  const videoSrc = coverImage.src.startsWith('/') ? `${basePath}${coverImage.src}` : coverImage.src;
+
   return (
     <section className="mt-20 mb-6 md:mb-6">
       <PostTitle>{title}</PostTitle>
@@ -25,11 +28,11 @@ export function PostHeader({ title, coverImage, date, author }: Props) {
             controls
             className="w-6/7 md:w-5/6 lg:w-4/6 rounded-lg"
           >
-            <source src={coverImage.src} type="video/mp4" />
+            <source src={videoSrc} type="video/mp4" />
           </video>
         ) : (
           <Image
-            src={coverImage.src}
+            src={videoSrc}
             alt={title}
             // ... other Image props
           />

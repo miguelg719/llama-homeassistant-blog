@@ -16,7 +16,7 @@ export function Footer() {
               className="w-5 h-5 lg:w-7 lg:h-7 text-neutral-700 dark:text-neutral-200"
             />
             <a
-              href={`https://github.com/miguelg719`}
+              href={`https://github.com/miguelg719/llama-homeassistant-blog`}
               className="text-sm hover:underline"
             >
               GitHub
