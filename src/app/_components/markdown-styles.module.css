@@ -46,3 +46,22 @@
     dark:bg-gray-800/50 bg-gray-100/50
     dark:text-gray-200 text-gray-900;
 }
+
+/* Add these new styles for better link wrapping */
+.markdown a {
+  @apply break-words break-normal hyphens-auto;
+}
+
+.markdown strong {
+  @apply break-words break-normal;
+}
+
+/* Handle bold links specifically */
+.markdown strong a {
+  @apply inline-block break-all;
+}
+
+/* Optional: add some max-width for better mobile display */
+.markdown p {
+  @apply my-6 max-w-full;
+}
