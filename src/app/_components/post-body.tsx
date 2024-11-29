@@ -1,13 +1,13 @@
 'use client';
 import markdownStyles from "./markdown-styles.module.css";
-import { ClockIcon, Copy, Check } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { ClockIcon } from 'lucide-react';
+import { useEffect } from 'react';
 
 type Props = {
   content: string;
 };
 
-function estimateReadTime(text: string, wordsPerMinute: number = 250): string {
+function estimateReadTime(text: string, wordsPerMinute: number = 110): string {
   const words = text.trim().split(/\s+/).length;
   const minutes = words / wordsPerMinute;
   const roundedMinutes = Math.ceil(minutes);

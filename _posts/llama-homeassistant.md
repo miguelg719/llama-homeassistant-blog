@@ -51,27 +51,99 @@ Notice how the repo contains both a frontend/ and backend/ directory. The fronte
 
 ### **2. Compose the backend**
 
+The next step is to compose the backend. This will download and start the Home Assistant container and the FastAPI server. 
+
 ```bash
 docker compose up --build
 ```
 
-### **3. Onboard Home Assistant**
+### **3. Setting up Home Assistant**
 
+Once Home Assistant has started, you will be able to access the onboarding page by navigating to _[http://localhost:8123](http://localhost:8123)_
+
+You should see a page like this:
+
+![Home Assistant onboarding](/assets/images/ha_onboarding.png)
+
+Click on **Create my smart home** and follow the instructions.
+Once you have completed the onboarding, you will see a dashboard like this:
+
+![Home Assistant dashboard](/assets/images/ha_dashboard.png)
+
+
+__(Optional)__ The next step is optional but, since this quickstart enables only a few supported actions, we recommend editing the dashboard to display lights, an alarm panel, and a thermostat. You can do this by clicking on the top right pencil icon and then the three dots on the top right corner of the popup. Like this:
+
+![Home Assistant dashboard customization](/assets/images/ha_dashboard_customization.png)
+
+Click on **Take control** and select **Start with an empty dashboard**. The UI to customize the dashboard should be intuitive; feel free to play around with it and try to add different cards. The goal is to have a dashboard that looks like this:
+
+![Home Assistant dashboard](/assets/images/ha_dashboard_final.png)
 
 ### **4. Paste the Home Assistant API token into your .env file**
 
+With the onboarding complete, and (hopefully) the dashboard customized, we can now issue a token for our Llama agent to interact with Home Assistant. Follow these steps:
+
+- Click on your **profile** at the bottom left corner of the page.
+- On the new page, go to the **Security** tab.
+- Scroll down until you see the **Long-Lived Access Tokens** section.
+- Click on **Create token**.
+- Give the token a name and click **OK**.
+- Make sure you **copy the token and save it somewhere**, it will not be shown again. 
+
+![Home Assistant token](/assets/images/ha_token.png)
+
+With the token created, in the root directory of the repo, make your own **.env** file based on the provided _.env.example_ file and paste the token in the **HOMEASSISTANT_TOKEN** field.
+
 ### **5. Re-compose the backend**
 
+Now we are ready to restart our FastAPI server with the access token for our agent to interact with our smart home.
+
+**Make sure to have Ollama running** (the agent will request from the default port _:11434_). You need to pull the llama3.2 model first by running:
+
 ```bash
-docker compose up
+ollama pull llama3.2
+```
+
+Then you can restart the backend with the updated .env file:
+
+```bash
+docker compose down 
+``` 
+```bash
+docker compose up 
 ``` 
 
+At this point our backend is ready to interact with our home. It will be waiting for requests on _localhost:8000_ as a proxy to query the Llama model, parse the response and call the appropriate function (if needed) in Home Assistant. 
+
 ### **6. Start the frontend**
+
+The frontend is a simple gradio app that will issue requests to our server and display the response from Llama after performing any necessary actions. To start the gradio app, simply run:
 
 ```bash
 cd frontend
 python3 -m gradio app.py
 ```
+
+The frontend will start on  _[http://localhost:7860](http://localhost:7860)_ and you should see a screen like this:
+
+![Gradio frontend](/assets/images/gradio.png)
+
+Now you can send a request to the agent and see how it interacts with your smart home. You can ask things like:
+
+- "Turn on the bedroom light"
+- "Set the alarm to away, the code is 1234"
+- "It's a bit cold here, can you increase the temperature to 80 degrees?"
+
+You can also ask for recipes, cleaning routines, and more.
+
+## **Next Steps**
+
+1. Hope you enjoyed this quickstart! The demo video shows a few example requests and provides a taste of what is possible with this integration. 
+2. Feel free to reach out with any questions or feedback. We encourage you to expand the functionality of the agent by adding more automations and actions on this repo:
+
+**[https://github.com/miguelg719/homeassistant-llama](https://github.com/miguelg719/homeassistant-llama)**
+
+Keep hacking!
 
 <!-- 
 ## Key Features and Use Cases
