@@ -6,7 +6,7 @@ coverImage: {
   isVideo: true,
   poster: "/assets/images/thumbnail.png"
 }
-date: "2020-03-16T05:35:07.322Z"
+date: "2024-11-29T05:35:07.322Z"
 author:
   name: Miguel Gonzalez
 ogImage:
