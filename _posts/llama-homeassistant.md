@@ -13,19 +13,23 @@ ogImage:
   url: "/assets/blog/dynamic-routing/cover.jpg"
 ---
 
-Smart home technology has revolutionized how we interact with our homes, but it comes with significant trade-offs: fragmented ecosystems, privacy concerns, and a lack of truly personalized automation. What if you could have all the convenience of a smart home assistant without sacrificing your data or control? In this quickstart we introduce a groundbreaking integration of Home Assistant and Meta’s Llama 3.2 delivering the world’s first private, local, and adaptive smart home assistant.
+Smart home technology has revolutionized how we interact with our homes, but it comes with significant trade-offs: fragmented ecosystems, privacy concerns, and a lack of truly personalized automation. What if you could have all the convenience of a smart home assistant without sacrificing your data or control? In this quickstart we introduce a groundbreaking integration of Home Assistant and Meta’s Llama AI delivering the world’s first private, local, and adaptive smart home assistant.
 
 The current landscape of smart home technology faces the following challenges:
 
 1. **Fragmentation**: Devices from different brands rarely play well together, forcing users to juggle multiple apps and interfaces.
-2. **Privacy Concerns**: Popular assistants rely on cloud-based processing, exposing your data to external servers and risking potential breaches.
+2. **Privacy Concerns**: Popular assistants rely on cloud-based processing, exposing your data to external servers, selling your data to third parties, and risking potential breaches.
 3. **Lack of Personalization**: While assistants can perform basic tasks, they often fail to learn and adapt to your unique needs and habits.
 
-These limitations create a frustrating user experience that prioritizes convenience over privacy and customization. Open-source frameworks like Home Assistant, a platform that connects and manages smart devices, aim to address some of these issues, but their complex setup and learning curve can discourage non-technical users from adopting them. By leveraging Meta’s Llama 3.2, an advanced large language model (LLM) available in small sizes (1B, 3B), we introduce a system that:
+These limitations create a frustrating user experience that prioritizes convenience over privacy and customization. Open source frameworks like Home Assistant, a platform that connects and manages smart devices, aim to address some of these issues, but their complex setup and learning curve can discourage non-technical users from adopting them. By leveraging Meta’s Llama, an advanced large language model (LLM), we introduce a system that:
 
 1. **Processes Locally**: All data stays on your home network, ensuring privacy and eliminating dependence on the cloud.
 2. **Simplifies Smart Home Management**: Home Assistant acts as a centralized hub, unifying control of devices across brands and ecosystems whereas the Llama model allows you to control devices and create automations using intuitive voice or text commands.
 3. **Learns and Adapts**: The system proactively suggests and implements automations based on your preferences and routines.
+
+Following upon the principles of Home Assistant, choosing an open source LLM as the 'brain' of the assistant is key in terms of scale and support. Meta's [**Llama**](https://llama.com) provides an excellent choice for this role. It comes in small sizes (1B, 3B) that can run locally on accessible low-cost hardware. The open source nature of Llama (and its commitment to staying open) provides a solid foundation for continuous upgrades with new and enhanced capabilities such as reasoning or planning. 
+
+What can this 'brain' do for you? Today it serves as a simplified interface through natural language for controls and question-answering. Rather than having to open an app and click a button to dim up a light, you can just say _'it's a bit dark here'_. Tomorrow, this system will be able to reason, plan, and adapt to your needs. It will require less explicit instructions and seamlessly integrate with your preferences. For example, it could learn your daily routines and begin heating up the house a few minutes before you wake up, or turn on a few lights right when you get home from work. Think of it as your personal butler. Assistants in each home may adopt distinct voices and personalities, offering unique experiences for owners and guests
 
 ## **Try it yourself**
 
